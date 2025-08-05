@@ -49,17 +49,14 @@ ami-config:
             conditions:
                 Event: 'UserEvent'
                 UserEvent: 'dialtone'
-            requirements:
-                match:
-                    Result: 'Pass'
+            count: 1
     -
         ami-events:
             conditions:
                 Event: 'UserEvent'
                 UserEvent: 'congestion'
-            requirements:
-                match:
-                    Result: 'Pass'
+            count: 1
+
         ami-actions:
             action:
                 Action: 'Command'
