@@ -72,8 +72,8 @@ ami-config-3:
                 Event: 'UserEvent'
                 UserEvent: 'congestion'
         requirements:
-                match:
-                    Result: 'Pass'
+            match:
+                Result: 'Pass'
         ami-actions:
             action:
                 Action: 'Command'
