@@ -26,7 +26,7 @@ test-modules:
 
 test-object-config:
     connect-ami: True
-    reactor-timeout: 10
+    reactor-timeout: 30
     stop-after-scenarios: False
 
 timer-originator:
@@ -45,8 +45,7 @@ ami-config-1:
             conditions:
                 match:
                     Event: 'UserEvent'
-                    UserEvent: 'TimerExpired'
-                    TimerEvent: nodestart
+                    UserEvent: 'nodestart'
         ami-actions:
             action:
                 Action: 'Command'
@@ -59,8 +58,10 @@ ami-config-2:
         ami-events:
             conditions:
                 Event: 'UserEvent'
-                UserEvent: 'TimerExpired'
-                TimerEvent: dialtone
+                UserEvent: 'dialtone'
+            requirements:
+                match:
+                    Result: 'Pass'
 
 # Something that allows us to detect that everything's gone as expected,
 # we haven't crashed, and we can stop the test after the connect/disconnect
@@ -69,8 +70,10 @@ ami-config-3:
         ami-events:
             conditions:
                 Event: 'UserEvent'
-                UserEvent: 'TimerExpired'
-                TimerEvent: congestion
+                UserEvent: 'congestion'
+        requirements:
+                match:
+                    Result: 'Pass'
         ami-actions:
             action:
                 Action: 'Command'
