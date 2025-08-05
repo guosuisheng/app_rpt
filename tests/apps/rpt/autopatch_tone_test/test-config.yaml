@@ -54,7 +54,7 @@ ami-config-1:
 
 # Something that allows us to detect that everything's gone as expected,
 # we haven't crashed, and we can stop the test after the connect/disconnect
-ami-config-3:
+ami-config-2:
     -
         ami-events:
             conditions:
@@ -64,7 +64,7 @@ ami-config-3:
 
 # Something that allows us to detect that everything's gone as expected,
 # we haven't crashed, and we can stop the test after the connect/disconnect
-ami-config-4:
+ami-config-3:
     -
         ami-events:
             conditions:
