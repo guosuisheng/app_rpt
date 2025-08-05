@@ -15,15 +15,9 @@ test-modules:
             config-section: hangup-monitor
             typename: 'pluggable_modules.HangupMonitor'
         -
-            config-section: ami-config-1
+            config-section: ami-config
             typename: 'pluggable_modules.EventActionModule'
-        -
-            config-section: ami-config-2
-            typename: 'pluggable_modules.EventActionModule'
-        -
-            config-section: ami-config-3
-            typename: 'pluggable_modules.EventActionModule'
-
+ 
 test-object-config:
     connect-ami: True
     reactor-timeout: 30
@@ -39,7 +33,7 @@ timer-originator:
 hangup-monitor:
     ids: '0'
 
-ami-config-1:
+ami-config:
     -
         ami-events:
             conditions:
@@ -50,10 +44,6 @@ ami-config-1:
             action:
                 Action: 'Command'
                 Command: 'rpt fun 123 *61'
-
-# Something that allows us to detect that everything's gone as expected,
-# we haven't crashed, and we can stop the test after the connect/disconnect
-ami-config-2:
     -
         ami-events:
             conditions:
@@ -62,18 +52,14 @@ ami-config-2:
             requirements:
                 match:
                     Result: 'Pass'
-
-# Something that allows us to detect that everything's gone as expected,
-# we haven't crashed, and we can stop the test after the connect/disconnect
-ami-config-3:
     -
         ami-events:
             conditions:
                 Event: 'UserEvent'
                 UserEvent: 'congestion'
-        requirements:
-            match:
-                Result: 'Pass'
+            requirements:
+                match:
+                    Result: 'Pass'
         ami-actions:
             action:
                 Action: 'Command'
