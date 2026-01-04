@@ -4,6 +4,8 @@
  * \brief Generic serial I/O routines
  */
 
+#include <sys/io.h>
+
 #include "asterisk.h"
 
 #include <termios.h>
