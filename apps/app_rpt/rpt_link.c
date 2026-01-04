@@ -51,6 +51,8 @@ void init_linkmode(struct rpt *myrpt, struct rpt_link *mylink, int linktype)
 		mylink->linkmode = 1;
 		break;
 	default:
+		{
+		}
 	}
 }
 
@@ -73,6 +75,8 @@ void set_linkmode(struct rpt_link *mylink, enum rpt_linkmode linkmode)
 		mylink->linkmode = 1;
 		break;
 	default:
+		{
+		}
 	}
 }
 
